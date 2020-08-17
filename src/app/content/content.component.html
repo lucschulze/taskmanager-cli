@@ -1,0 +1,62 @@
+<main role="main">
+
+    <section class="jumbotron text-center" style="margin-bottom: -10px;">
+      <div class="container">
+        <h1 class="jumbotron-heading">Task manager</h1>
+        <p class="lead text-muted">Aqui você pode gerenciar suas atividades, criando, editando, excluindo e alterando seus status!</p>
+      </div>
+    </section>
+
+    <div class="album bg-light">
+      <div class="container">
+        <section class="feature-area pt-100 pb-100">
+            <div class="container">
+                <div class="row">
+                    <app-task [task]="task" *ngFor="let task of tasks; index as i" class="col-md-4 single-service"></app-task>
+                </div>
+            </div>
+        </section>
+      </div>
+    </div>
+
+  </main>
+
+  
+    <!-- Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Editar task</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="alert alert-success" role="alert" *ngIf="sucesso">
+        Task editada com sucesso!
+      </div>
+      <form class="mt-5" (ngSubmit)='editarTask()' [formGroup]='formEditar' *ngIf="!sucesso">
+      <div class="modal-body">
+    
+          <div class="form-group">
+              <input type="number" class="form-control cadastro" placeholder="ID" formControlName='id' disabled="disabled">
+          </div>
+          <div class="form-group">
+          <input type="text" class="form-control cadastro" placeholder="Titulo" formControlName='titulo'>
+          </div>
+          <div class="form-group">
+          <input type="text" class="form-control cadastro" placeholder="Descição" formControlName='descricao'>
+          </div>
+
+      </div>
+      <div class="modal-footer">
+      
+        <button type="submit" class="btn btn-cadastro btn-lg">Editar</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+    <app-create></app-create>
+  

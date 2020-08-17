@@ -1,0 +1,23 @@
+
+    <div class="desc single-feature">
+
+        <div class="dropdown show">
+            <h2 class="text-uppercase">{{task.titulo}}</h2>
+            <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            </a>
+          
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" data-toggle="modal" data-target="#editModal" (click)="atualizarTask()">Editar</a>
+              <a class="dropdown-item text-danger" (click)="excluir()">Excluir</a>
+            </div>
+          </div>
+        
+        <p>
+            {{task.descricao}}
+        </p>
+        <a class="text-uppercase view-details" (click)="finalizar()" *ngIf="task.status == 'FINALIZADA' ? false : true">Finalizar</a>
+        <a class="text-uppercase view-details inativo" *ngIf="task.status == 'FINALIZADA' ? true : false">Finalizar</a>
+    </div>
+
+    
+
