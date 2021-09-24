@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
   providedIn: "root"
 })
 export class TaskmanagerService {
-  url = `http://localhost:8086/tasks`;
+  url = `http://localhost:3000/tasks`;
 
   // Observable string sources
   private emitChangeSource = new Subject<any>();
@@ -28,8 +28,8 @@ export class TaskmanagerService {
           return this.httpClient.post<Task>(this.url, request);
         }
 
-        public editarTask(id: number, task: Task): Observable<Task> {
-          const url = `${this.url}/${id}`;
+        public editarTask(task: Task): Observable<Task> {
+          const url = `${this.url}`;
           return this.httpClient.put<Task>(url, task);
         }
 

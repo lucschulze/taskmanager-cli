@@ -52,9 +52,7 @@ export class ContentComponent implements OnInit {
   }
  
   editarTask() {
-    const id = this.task.id;
-    delete this.formEditar.id;
-    this.service.editarTask(id, this.formEditar.value).subscribe(
+    this.service.editarTask(this.formEditar.value).subscribe(
       (task: Task) => {
         this.sucesso = true;
         this.service.emitChange("");
